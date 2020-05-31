@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="js/myscript.js"></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCtrl">
+
+    <div class="container">
+        <div class="jumbotron py-3">
+            <h1 class="text-center">{{title}}</h1>
+            <p class="pt-3">
+                Coronavirus disease 2019 (COVID-19) is an infectious disease caused by severe acute respiratory syndrome
+                coronavirus 2 (SARS-CoV-2). It was first identified in December 2019 in Wuhan, China, and has since
+                spread globally, resulting in an ongoing pandemic.
+
+            </p>
+
+            <!-- all data -->
+            <h2 class="text-center text-primary">WORLD COVID-19 STATUS</h2><br>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h5>confirmed cases</h5>
+                            <h5>{{all_data.confirmed.value}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h5>Recovered cases</h5>
+                            <h5>{{all_data.recovered.value}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h5>Death cases</h5>
+                            <h5>{{all_data.deaths.value}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END DATA -->
+            <input type="text" class="full-control mt-4" placeholder="enter country here" ng-model="c"
+                ng-change="get_c_data()" />
+
+            <!-- country data -->
+            <div class="container-fluid" ng-if="c_data">
+                <h2 class="text-center mt-4 text-uppercase text-primary">{{c}} COVID-19 STATUS</h2>
+                <div class="row text-center mt-4">
+                    <div class="col-md-4">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h5>confirmed cases</h5>
+                                <h5>{{c_data.confirmed.value}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h5>Recovered cases</h5>
+                                <h5>{{c_data.recovered.value}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h5>Death cases</h5>
+                                <h5>{{c_data.deaths.value}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end country data -->
+
+        </div>
+    </div>
+
+</body>
+
+</html>
